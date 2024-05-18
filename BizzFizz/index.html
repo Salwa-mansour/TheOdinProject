@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+</body>
+
+<script>
+    const num = prompt('give me a number');
+    let is3multiple = false;
+    let is5multiple = false;
+    let toNum =[];
+
+//     is3multiple = num % 3 === 0 ; 
+//     is5multiple = num % 5 === 0 ;
+//  if(is3multiple&&is5multiple){
+//     alert('FizzBuzz')
+//  }else if(is3multiple){
+//     alert('Fizz');
+//  }else if(is5multiple){
+//     alert('Buzz');
+//  }else{
+//     for(let i=1 ; i<= num ;i++){
+//         toNum.push(i);
+//     }
+//     alert(toNum)
+// }
+   // ------------------
+   for(let i=1 ; i<= num ;i++){
+    is3multiple = i % 3 === 0 ; 
+    is5multiple = i % 5 === 0 ;
+    if(is3multiple&&is5multiple){
+         toNum.push('FizzBuzz');
+      }else if(is3multiple){
+         toNum.push('Fizz');
+      }else if(is5multiple){
+         toNum.push('Buzz');
+      }else{
+         toNum.push(i);
+      }
+
+   }
+   alert(toNum)
+</script>
+</html>
