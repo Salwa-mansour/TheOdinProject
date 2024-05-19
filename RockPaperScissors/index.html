@@ -15,9 +15,61 @@
         paly the round
         calculate the rate
         calculate the rounds
+        reset stuff
+        return winner
         */
        const choices = ['Rock','Paper','Scissors'];
+       const rounds = 3;
+       let roundsCounter = 0;
+       let humanRate = 0 ;
+       let computerRate = 0;
+     
+       function getChoices(){
+        if(roundsCounter == rounds){console.log(countRates()) ; return;} 
+        let   computerChoice = choices[Math.round(Math.random() * 2) ].toLowerCase()   ;
+        let   humanChoice    = prompt("What is your choice ['Rock','Paper','Scissors']").trim().toLowerCase()  ;
+        roundsCounter++;
+        getChoices();
+        return {computerChoice,humanChoice};
+       }
 
+       function testWinner(){
+        getChoices();
+        let game =  getChoices();
+        if(!game.humanChoice.match(/^(rock|paper|scissors)$/i)){
+        console.log('Please Choose a Proper choice.');
+        return;
+        } 
+        if(game.humanChoice ==='paper' && game.computerChoice==='scissors'){
+              countRates('computer');                           //1
+        }else if(game.humanChoice ==='paper' && game.computerChoice==='rock'){
+              countRates('human');                          //2                
+        }else if(game.humanChoice ==='scissors' && game.computerChoice==='paper'){
+              countRates('human');                           //3
+        }else if(game.humanChoice ==='scissors' && game.computerChoice==='rock'){
+              countRates('computer');                           //4
+        }else if(game.humanChoice ==='rock' && game.computerChoice==='paper'){
+            countRates('computer');                            //5
+        }else if (game.humanChoice ==='rock' && game.computerChoice==='scissors'){
+            countRates('human');                             //6
+        }
+        console.log(game)
+       
+       // testWinner();
+       }
+       function countRates(winner = ''){
+        console.log('countRates running')
+        if(winner==='human'){
+            humanRate++;
+            console.log({humanRate})
+        }else if(winner === 'computer'){
+            computerRate++;
+            console.log({computerRate})
+        }
+        return {humanRate,computerRate}
+       }
+       
+       testWinner();
     </script>
 </body>
 </html>
