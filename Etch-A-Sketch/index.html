@@ -8,6 +8,7 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
+    <h1>Etch A Sketch 🖼</h1>
     <div class="container">
        <div class="screen">
             <!-- <div class="point"></div> -->
@@ -21,8 +22,18 @@
             <button data-color="blue" title="blue"> </button> -->
         </div>
         <div class="control-btns">
+             <select name="options" id="options">
+                <option value="normal" selected >normal</option>
+                <option value="shader">shader</option>
+            </select>
+             <select name="point-size" id="point-size">
+                <option value="10" selected >small</option>
+                <option value="20"  >medium</option>
+                <option value="30">large</option>
+            </select>
             <button id="fill" title="fill">🎨</button>
             <button id="clear" title="clear">🧤</button>
+           
         </div>
        
        </div> 
