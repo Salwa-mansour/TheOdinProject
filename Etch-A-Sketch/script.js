@@ -7,6 +7,7 @@ const fillBtn = controls.querySelector('#fill');
 const options = controls.querySelector('#options');
 const pointSize = controls.querySelector('#point-size');
 
+
 function generatePoints(){
   
   let screenWidth = screen.offsetWidth;
@@ -16,27 +17,31 @@ function generatePoints(){
   let xPoints =Math.round(screenWidth / diminutions) ;
   let yPoints =Math.round(screenHeight / diminutions) ;
   let points  = xPoints * yPoints;
-  for(let i = 0 ; i < points  ;i++){
-  const div = document.createElement('div');
-  div.classList.add('point');
-  div.setAttribute("data-moved-on", 0);
-  div.style.width =`${diminutions}px`;
-  div.style.height =`${diminutions}px`;
-  screen.appendChild(div);
-}
+      for(let i = 0 ; i < points  ;i++){
+      const div = document.createElement('div');
+      div.classList.add('point');
+      div.setAttribute("data-moved-on", 0);
+      div.style.width =`${diminutions}px`;
+      div.style.height =`${diminutions}px`;
+      screen.appendChild(div);
+    }
 
 }
+
 
 function colorize(e){
  
     if(e.target.classList.contains('point')){
         e.target.classList.add(`color`);
-    if(options.value.match('normal')){
-        e.target.style.backgroundColor = color.value;
-        console.log('normal',color.value)
-    }else if(options.value.match('shader')){
+
+    if(options.value.match('shader')){
         e.target.addEventListener('mouseleave',shaderColoring);
-        console.log('shader')
+    }else  if(options.value.match('normal')){
+        e.target.style.backgroundColor = color.value;
+        e.target.style.opacity ='100%' ;// override any older opacity change
+         // unbind any shader eventListener from old shader mood selection
+         e.target.removeEventListener('mouseleave',shaderColoring);
+        console.log('remove eventlistner1')
     }
    
   //  console.log(e.target)
@@ -44,25 +49,32 @@ function colorize(e){
  
 }
 function shaderColoring(e){
-   
-     let movedOnCounter = parseInt(e.target.dataset.movedOn) /* how many times moved on */
+  screen.style.backgroundColor = '#fff';
+  let movedOnCounter = parseInt(e.target.dataset.movedOn) /* how many times moved on */
      if(movedOnCounter < 10){
      this.dataset.movedOn = movedOnCounter + 1 ;
      this.style.opacity = `${this.dataset.movedOn * 10 }%`;
      this.style.backgroundColor = '#000';
    
+    }else{
+      // unbind event listener after 10 times of mouse event (item reach 100% opacity)
+       e.target.removeEventListener('mouseleave',shaderColoring);
+     
     }
 }
 function resetScreen(){
 const  items =  screen.querySelectorAll('[class*="color"]');
 
   items.forEach(item => {
-    item.style.backgroundColor = 'transparent';
-    item.style.opacity = '100%';
+   item.classList.remove('color');
+   item.dataset.movedOn = 0;
+   item.style.backgroundColor = 'transparent';
+   item.style.opacity = '100%';
   });
   screen.style.backgroundColor = '#fff';
 }
 function colorScreen(){
+   
     screen.style.backgroundColor = color.value;
 }
 
@@ -74,6 +86,6 @@ clearBtn.addEventListener('click',resetScreen);
 fillBtn.addEventListener('click',colorScreen);
 options.addEventListener('change', resetScreen);
 pointSize.addEventListener('change',()=>{
-    screen.replaceChildren();//remove all points
+    screen.replaceChildren();//remove all old size points
     generatePoints();
 });

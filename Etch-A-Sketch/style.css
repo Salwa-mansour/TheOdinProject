@@ -13,6 +13,9 @@ html{
     box-sizing: border-box;
     text-align: center;
 }
+/* :root{
+    --point-opacity : 100%;
+} */
 .screen{
     width: 90vw;
     height: 80vh;
@@ -22,9 +25,10 @@ html{
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
-  
+    flex-direction: column;
     align-content: flex-start;
 }
+
 .controls{
     display: flex;
     justify-content: space-around;
