@@ -25,7 +25,7 @@ html{
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: column;/*to not miss the existing drawing if you resize screen (add new columns not reorder row items)*/
     align-content: flex-start;
 }
 
