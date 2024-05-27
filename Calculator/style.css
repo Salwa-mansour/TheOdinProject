@@ -147,6 +147,7 @@ body {
   font-size: 1.714285714em;
   padding: 0.5em 0.75em;
   text-align: right;
+  width: 100%;
 }
 
 .calculator__keys {
@@ -181,8 +182,17 @@ body {
   background-color: #eee;
 }
 
-.key--equal {
+#equal {
   background-image: linear-gradient(to bottom, #fe886a, #ff7033);
   grid-column: -2;
   grid-row: 2 / span 4;
+}
+.calculator__display::placeholder {
+  color: rgb(255, 255, 255);
+}
+:-ms-input-placeholder {
+  color: rgb(255, 255, 255);
+}
+::-ms-input-placeholder {
+  color: rgb(255, 255, 255);
 }

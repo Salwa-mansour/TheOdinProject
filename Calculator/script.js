@@ -8,48 +8,96 @@
 
 const mainContainer = document.querySelector('.calculator');
 const display = mainContainer.querySelector('.calculator__display');
-const keys = mainContainer.querySelector('button');
-const operatorClicked = false;
-const result;
+const keys = mainContainer.querySelectorAll('[class^=key]');
+const clearBtn = mainContainer.querySelector('#clear');
+const equalBtn = mainContainer.querySelector('#equal');
 
+let operatorClicked = false;
+let result = "";
+let mathExpression = {
+    // you can change thet to array of numbers and array of oprators if you want to perform multiple oprations in one shot 
+    num1:"" ,
+    operation:"" ,
+    num2:""
+ }
 
-function operate(operator){
-    switch (operator){
-    case 'add':
+function operate(){
+    switch (mathExpression.operation){
+        case '+':
             add();
         break;
-        case 'subtract':
+        case '-':
             subtract();
         break;
-        case 'multiply':
+        case '*':
             multiply();
         break;
-        case 'divide':
+        case '/':
             divide();
         break;
 
     }
+    displayResult();
 }
- function add(num1,num2){
-    
+function displayResult(){
+     reset();
+    display.value = result;
+   
+}
+ function add(){
+  result = parseFloat(mathExpression.num1 ) + parseFloat(mathExpression.num2) ;
  }
- function subtract(num1,num2){
-
+ function subtract(){
+    result = parseFloat(mathExpression.num1) - parseFloat(mathExpression.num2);
  }
- function multiply(num1,num2){
-
+ function multiply(){
+    result = parseFloat(mathExpression.num1) * parseFloat(mathExpression.num2);
  }
- function divide(num1,num2){
-
+ function divide(){
+    result = parseFloat(mathExpression.num1)  / parseFloat(mathExpression.num2);
  }
- function getData(){
+ function getData(e){
     // seperate data from opration and call other funcions to oprate them
-    let operator;
- }
- function updateDisplay(){
+    if(this.dataset.action){
+        // handle previus opration result value
+      if(result !=="") mathExpression.num1 = result; 
+        mathExpression.operation  = this.dataset.action;
+        operatorClicked = true ;
+      
+     
+    }else{
+        if(!operatorClicked){
+            mathExpression.num1 = display.value + this.innerText ;
+        }else{
+            mathExpression.num2 = mathExpression.num2 + this.innerText ;
+        }
+    }
 
+    updateDisplay(e);
+    return mathExpression;
+
+ }
+ function updateDisplay(e){
+    display.value = `${mathExpression.num1}${mathExpression.operation}${mathExpression.num2}`;
  }
  function reset(){
+    display.value = "";
+    mathExpression = {
+        num1:"" ,
+        operation:"" ,
+        num2:""
+     }
+     operatorClicked = false;
 
  }
 
+
+ keys.forEach(key => {
+    key.addEventListener('click',getData)
+    
+ });
+ clearBtn.addEventListener('click',()=>{
+    result = "";//empty result for new operations
+    reset();
+    });
+ equalBtn.addEventListener('click',operate);
