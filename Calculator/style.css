@@ -143,11 +143,28 @@ body {
 
 .calculator__display {
   background-color: #222222;
-  color: #fff;
-  font-size: 1.714285714em;
-  padding: 0.5em 0.75em;
+ color: #fff;
+  font-size: 1.71em;
+ 
   text-align: right;
   width: 100%;
+  --block-padding:.25em;
+  --inline-padding:.5em;
+  display: flex;
+  flex-direction: column;
+}
+.calculator__display .oprations{
+  padding: var(--block-padding) var(--inline-padding);
+  font-size: .5em;
+  line-height: 1.8;
+  text-align: left;
+  min-height: 2rem;
+  flex: 2;
+}
+.calculator__display input{
+  color: #fff;
+  padding: var(--block-padding) var(--inline-padding);
+  flex: 4;
 }
 
 .calculator__keys {

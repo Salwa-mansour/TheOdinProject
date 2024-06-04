@@ -14,7 +14,11 @@
      
         <div class="calculator">
           <!-- <input class="calculator__display">0</input> -->
-          <input type="text" name="calculator__display"  class="calculator__display" value="" placeholder="0">
+          <div class="calculator__display">
+            <span class="oprations"></span>
+            <input type="text" name="display__value"   value="" placeholder="0">
+          </div>
+          
           <div class="calculator__keys">
             <button class="key--operator" data-action="+">+</button>
             <button class="key--operator" data-action="-">-</button>
