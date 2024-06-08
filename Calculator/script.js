@@ -36,7 +36,7 @@ function operate(){
         //set inial value
         result = numbers[0];
     }else{
-     idxOpratro = operations.length-1;
+     idxOpratro = operations.length-2;//perform be for the last opartions [this"+","-"]
      oprator = operations[idxOpratro];
      idxNumber = numbers.length-1;
      fNum = numbers[idxNumber];
@@ -58,6 +58,7 @@ function operate(){
 
         }
     }
+   
  //   displayResult();
 }
 
