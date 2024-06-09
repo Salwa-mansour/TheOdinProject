@@ -4,25 +4,31 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  
 }
 .page{
     display: flex;
     max-width: 1000px;
     margin: auto;
     min-height: 100vh;
+    --padding-unit: min(3rem,3vw);
+    --margin-1:1rem;
+
 }
+
 .form-container{
     width: min(700px,80%);
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    outline: 1px solid red;
+   
 }
-.form1 legend{
-   text-align: center;
+.form-container h4{
+    padding-inline:var(--padding-unit);
+    margin-bottom: var(--margin-1);
 }
+
 .form-inputs{
      display: flex;
      padding: 1rem;
@@ -30,8 +36,28 @@
     justify-content: space-around;
     flex-wrap: wrap;
     width: 100%;
-    box-shadow: 10px 10px 10px black;
-
+   box-shadow:-9px 2px 10px 2px #dcdcdc;
+    padding-inline:var(--padding-unit);
+    margin-bottom: var(--margin-1);
+}
+.form-inputs legend{
+   
+    margin-bottom: var(--margin-1);
+    flex: 100%;
+ }
+.form1 .form-footer{
+    padding-inline:var(--padding-unit);
+}
+.form-footer button[type="submit"]{
+    outline: 0;
+    border: none;
+    border-radius: 5px;
+    padding-inline: 1.5em;
+    padding-block: .5em;
+    font-size: 1rem;
+    background-color: #596d48;
+    color: white;
+    margin-bottom: var(--margin-1);
 }
 .form-item{
     flex: 50%;
@@ -40,6 +66,40 @@
     padding: .25rem;
 }
 .background-image{
+    background-image: url(../../images/olesia-hnatkevych-kMHGWawr-Yc-unsplash.jpg);
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
     flex: auto;
-    height:100% ;
+    position: relative;
+    color: white;
+}
+.background-image .logo{
+    position: relative;
+    margin-top: 20vh;
+    padding-inline: 1rem;
+    padding-block: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    white-space: nowrap;
+}
+.background-image .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background-image .attribution{
+    position: absolute;
+    bottom: .25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: .5rem;
+    white-space: nowrap;
+}
+.background-image .attribution a{
+    color: white;
+}
+.background-image .attribution a:hover{
+    text-decoration: none;
 }

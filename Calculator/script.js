@@ -35,12 +35,17 @@ function operate(){
     if(numbers.length ===1){
         //set inial value
         result = numbers[0];
+     
+        oprator = operations[0];
+      
+      
+         
     }else{
-     idxOpratro = operations.length-2;//perform be for the last opartions [this"+","-"]
+     idxOpratro = operations.length-1;//perform be for the last opartions [this"+","-"]
      oprator = operations[idxOpratro];
      idxNumber = numbers.length-1;
      fNum = numbers[idxNumber];
-      
+    }
     
         switch (oprator){
             case '+':
@@ -57,21 +62,21 @@ function operate(){
             break;
 
         }
-    }
+   
    
  //   displayResult();
 }
 
- function add(num1,num2){
+ function add(num1,num2 = 0){
   result = parseFloat(num1) + parseFloat(num2) ;
  }
- function subtract(num1,num2){
+ function subtract(num1,num2 = 0){
     result = parseFloat(num1) - parseFloat(num2);
  }
- function multiply(num1,num2){
+ function multiply(num1,num2 = 1){
     result = parseFloat(num1) * parseFloat(num2);
  }
- function divide(num1,num2){
+ function divide(num1,num2 = 1){
     result = parseFloat(num1)  / parseFloat(num2);
  }
 
