@@ -6,6 +6,14 @@
     box-sizing: border-box;
   
 }
+@font-face {
+    font-family: 'norse';
+    src:  url('../../images/Norse-Bold.otf') format('woff2');
+        
+  }
+  body{
+    font-family: sans-serif;
+  }
 .page{
     display: flex;
     max-width: 1000px;
@@ -54,17 +62,49 @@
     border-radius: 5px;
     padding-inline: 1.5em;
     padding-block: .5em;
-    font-size: 1rem;
+    font-size: .9rem;
+    font-weight: 200;
     background-color: #596d48;
     color: white;
     margin-bottom: var(--margin-1);
 }
 .form-item{
-    flex: 50%;
+   position: relative;
+   width:40% ;
     display: flex;
     flex-direction: column;
     padding: .25rem;
+    margin-bottom: .75rem;
 }
+.form-item label{
+    font-size: .75rem;
+    text-transform: capitalize;
+}
+.form-item input{
+   
+    outline: none;
+    border: 1px solid hsl(0, 0%, 85%);
+    padding:.4rem;
+    border-radius:3px;
+}
+.form-item input:invalid{
+    border-color: red;
+}
+/* label:has(+ input:required) {
+    position: relative ; 
+    }
+    .form-item label::after{
+        position: absolute;
+        content: "required*";
+        top: 0;
+        right: 0;
+        font-size: .5rem;
+        color: red;
+    } */
+.form-item input:focus{
+    box-shadow: -1px 0px 16px hsl(0, 0%, 90%);
+}
+
 .background-image{
     background-image: url(../../images/olesia-hnatkevych-kMHGWawr-Yc-unsplash.jpg);
     background-size: cover;
@@ -87,6 +127,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'norse';
 }
 
 .background-image .attribution{
