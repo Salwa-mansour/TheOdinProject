@@ -25,11 +25,11 @@
                      <legend>Let's do this!</legend>
                     <div class="form-item">
                         <label for="first-name">first name</label>
-                        <input type="text" id="first-name" required="required" >
+                        <input type="text" id="first-name" required="required" minlength="3" maxlength="20" >
                     </div>
                     <div class="form-item">
                         <label for="last-name">last name</label>
-                        <input type="text" id="last-name" required="required" >
+                        <input type="text" id="last-name" required="required" minlength="3" maxlength="20" >
                     </div>
                     <div class="form-item">
                         <label for="email">email</label>
@@ -37,16 +37,19 @@
                     </div>
                     <div class="form-item">
                         <label for="phon">phon number</label>
-                        <input type="tel" id="phon">
+                        <input type="tel" id="phon" pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$">
                     </div>
                     <div class="form-item">
                         <label for="password">password</label>
-                        <input type="password" id="password">
+                        <input type="password" id="password" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$">
                     </div>
                     <div class="form-item">
                         <label for="confirm password">confirm password</label>
-                        <input type="password" id="confirm password">
+                        <input type="password" id="confirm password" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$">
+                        <input type="password" id="pass" name="pass" pattern="(^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$)">
                     </div>
+                    <input type="text" id="zip_code" name="zip_code" pattern="(\d{5}([\-]\d{4})?)" required>
+
                 </div><!--form-inputs-->
                 <div class="form-footer">
                     <button type="submit">Create Account</button>
