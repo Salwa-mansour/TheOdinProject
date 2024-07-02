@@ -3,13 +3,31 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    font-family: "Roboto", sans-serif;
+}
+button,
+input[type="text"],
+fieldset{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+ul {
+    list-style: none;
+}
+/* =============== */
 .page{
     max-width: 1000px;
     min-height: 100vh;
     margin: auto;
     display: grid;
     grid-template-columns: 20vw auto;
-    grid-template-rows: 100px auto;
+    grid-template-rows: 125px auto;
     gap: 10px;
 }
 .page > *{
@@ -22,6 +40,11 @@ aside{
 header{
     grid-column: 2/-1;
     grid-row:1/2 ;
+    display: grid;
+    align-items: center;
+    grid-auto-flow: row;
+    grid-auto-rows: 40% auto;
+    padding-inline:10px ;
 }
 main{
     padding: 10px;
@@ -47,4 +70,230 @@ main .trending{
 }
 main >*{
     background-color: blanchedalmond;
+}
+.main-nav{
+    display: grid;
+    grid-template-columns: 50% repeat(3,1fr);
+    align-items: center;
+}
+
+.main-nav form{
+    display: contents;
+    grid-column: 1/2;
+}
+.main-nav form fieldset{
+    display: grid;
+  grid-template-columns: 20px auto;
+}
+.main-nav form input[type="text"]{
+    background-color: #e2e8f0;
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+}
+.main-nav form fieldset img{
+    grid-column: 1/2;
+    grid-row: 1/-1;
+    z-index: 10;
+}
+.main-nav #notifcations{
+    grid-column: 3/4;
+}
+.main-nav #user-btn{
+    grid-column: 4/-1;
+    display: grid;
+    grid-template-columns: 20px auto;
+    align-items: center;
+}
+.main-nav #user-btn img{
+    grid-column: 1/2;
+}
+.main-nav #user-btn h4{
+    font-size: .75rem;
+    font-weight: 400;
+    white-space: nowrap;
+}
+.global-links{
+    display: grid;
+    grid-template-columns: 40% repeat(5,1fr);
+    gap: 10px;
+    align-items: center;
+}
+.global-links .hello-user{
+    grid-column: 1/2;
+}
+.global-links .actions{
+    display: contents;
+}
+.global-links .actions button:nth-child(1){
+    grid-column:4/5 ;
+}
+.global-links .actions button:nth-child(2){
+    grid-column:5/6 ;
+}
+.global-links .actions button:nth-child(3){
+    grid-column:6/-1 ;
+}
+.global-links .hello-user{
+    display: grid;
+    grid-template-columns: 80px auto;
+    grid-template-rows: repeat(2,1fr);
+    align-items: center;
+}
+.hello-user img{
+    width: 80%;
+    grid-column: 1/2;
+    grid-row: 1/-1;
+   justify-self: center;
+}
+.hello-user span{
+    grid-column: 2/-1;
+    grid-row: 1/2;
+}
+.hello-user h5{
+    grid-column:2/-1 ;
+    grid-auto-rows: 2/-1;
+}
+.global-links .actions button{
+    color: #fff;
+    background-color: rgb(29, 106, 221);
+    font-weight: 300;
+    border-radius: 20px;
+    height: 2.5em;
+}
+aside{
+    padding: 10px;
+}
+aside .title{
+    display: grid;
+    grid-template-columns: 30px auto;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+aside .title img{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+aside .title h4{
+    grid-column: 2/-1;
+    grid-row: 1/2;
+}
+aside .main-links,
+aside .more-links{
+    display:  grid;
+    grid-auto-flow: row;
+    grid-template-rows: 100%;
+    gap: 5px;
+}
+aside .main-links{
+    margin-bottom: 5rem;
+}
+.main-links a,
+.more-links a{
+    padding: 5px;
+    display: grid;  
+    width: 100%;
+    grid-template-columns: 30px auto;
+    align-items: center;
+    gap: .5em;
+}
+.main-links a img,
+.more-links a img{
+    grid-column: 1/2;
+}
+.main-links a span,
+.more-links a span{
+    grid-column: 2/-1;
+}
+.notes h4,
+.trending h4{
+    padding-bottom: .5em;
+}
+aside.notes p{
+    font-size: .5rem;
+    color: rgb(130, 130, 130);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: .5em;
+}
+.note,
+.trending .item{
+    margin-bottom: .4em;
+}
+.note:not(:last-child){
+    border-bottom: 1px solid rgb(210, 210, 210);
+}
+.note h5,
+.trending .item h5{
+    padding-bottom: .4em;
+}
+.trending .item{
+    display: grid;
+    grid-template-columns: 40px auto;
+    grid-template-rows: repeat(2,1fr);
+    align-items: center;
+}
+.trending .item img{
+    width: 80%;
+    grid-column: 1/2;
+    grid-row: 1/-1;
+   justify-self: center;
+}
+.trending .item h5{
+    font-size: .75rem;
+    grid-column: 2/-1;
+    grid-row: 1/2;
+    font-weight: 400;
+}
+.trending .item p{
+    grid-column:2/-1 ;
+    grid-auto-rows: 2/-1;
+    font-size: .6rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: .5em;
+    color: rgb(130, 130, 130);
+   
+}
+.projects{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 20px;
+    padding: 10px;
+}
+.projects .card{
+    grid-column: auto;
+    grid-row: auto;
+    padding: 10px;
+    font-size: .8rem;
+}
+.projects .card p{
+    color: rgb(45, 44, 44);
+}
+.projects .card .actions{
+    margin-top: 2rem;
+}
+.projects .card .actions ul{
+    display: grid;
+    grid-template-columns: 20px;
+    justify-content: end;
+    gap: 10px;   
+}
+.projects .card .actions ul li{
+    grid-column: auto;
+    grid-row: 1/2;
+}
+.projects li img{
+    width:20px
+}
+.projects 
+.card{
+    background-color: #fff;
 }
